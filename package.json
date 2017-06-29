@@ -4,11 +4,15 @@
   "description": "A very light router based on history package",
   "main": "index.js",
   "scripts": {
+    "jest": "./node_modules/.bin/jest",
+    "jest:watch": "npm run jest -- --watch",
     "lint": "./node_modules/.bin/eslint src",
     "lint-fix": "./node_modules/.bin/eslint --fix src --ext .js",
-    "test": "./node_modules/.bin/jest",
-    "test:watch": "npm test -- --watch"
+    "test": "npm run lint && npm run jest"
   },
+  "pre-commit": [
+    "test"
+  ],
   "keywords": [
     "router",
     "history"
@@ -22,7 +26,8 @@
     "eslint": "^4.1.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.6.1",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "pre-commit": "^1.2.2"
   },
   "jest": {
     "testRegex": "(/tests/.*\\.spec.js)$"
