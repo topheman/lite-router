@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`micro-router compileMatchMount should match /hello/topheman 1`] = `
+Object {
+  "handler": [Function],
+  "params": Object {
+    "name": "topheman",
+  },
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router compileMatchMount should match /hello/world 1`] = `
+Object {
+  "handler": [Function],
+  "params": Object {},
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router compileMatchMount should match /hie/universe 1`] = `
+Object {
+  "handler": [Function],
+  "params": Object {},
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router compileMatchMount should match /whatever 1`] = `
+Object {
+  "handler": [Function],
+  "params": Object {},
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router normalizeRoutes mapping - normalizeRoutes(routes) should return a populated array 1`] = `
+Object {
+  "handler": [Function],
+  "matcher": [Function],
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router normalizeRoutes mapping - normalizeRoutes(routes) should return a populated array 2`] = `
+Object {
+  "handler": [Function],
+  "matcher": [Function],
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router normalizeRoutes mapping - normalizeRoutes(routes) should return a populated array 3`] = `
+Object {
+  "handler": [Function],
+  "matcher": [Function],
+  "resolve": undefined,
+}
+`;
+
+exports[`micro-router normalizeRoutes mapping - normalizeRoutes(routes) should return a populated array 4`] = `
+Object {
+  "handler": [Function],
+  "matcher": [Function],
+  "resolve": undefined,
+}
+`;

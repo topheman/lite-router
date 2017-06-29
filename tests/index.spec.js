@@ -105,10 +105,10 @@ describe('micro-router', () => {
       });
       it('should return a populated array', () => {
         const normalizedRoutes = normalizeRoutes(routes);
-        expect(normalizedRoutes[0]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
-        expect(normalizedRoutes[1]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
-        expect(normalizedRoutes[2]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
-        expect(normalizedRoutes[3]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
+        expect(normalizedRoutes[0]).toMatchSnapshot();
+        expect(normalizedRoutes[1]).toMatchSnapshot();
+        expect(normalizedRoutes[2]).toMatchSnapshot();
+        expect(normalizedRoutes[3]).toMatchSnapshot();
       });
     });
   });
@@ -121,19 +121,19 @@ describe('micro-router', () => {
     ];
     const matchMount = compileMatchMount(normalizeRoutes(routes));
     it('should match /hello/world', () => {
-      expect(matchMount('/hello/world')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hello/world')).toMatchSnapshot();
       expect(matchMount('/hello/world').params).toEqual({});
     });
     it('should match /hie/universe', () => {
-      expect(matchMount('/hie/universe')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hie/universe')).toMatchSnapshot();
       expect(matchMount('/hie/universe').params).toEqual({});
     });
     it('should match /hello/topheman', () => {
-      expect(matchMount('/hello/topheman')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hello/topheman')).toMatchSnapshot();
       expect(matchMount('/hello/topheman').params).toEqual({ name: 'topheman' });
     });
     it('should match /whatever', () => {
-      expect(matchMount('/whatever')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/whatever')).toMatchSnapshot();
       expect(matchMount('/whatever').params).toEqual({});
     });
   });

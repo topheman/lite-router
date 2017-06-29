@@ -92,7 +92,7 @@ export const normalizeRoutes = (routes) => routes.map(route => {
  * @param routes
  */
 export const compileMatchMount = (routes) => (pathname) => { // eslint-disable-line arrow-body-style
-                                                             // match the location.pathname to one of the routes and extract the related mounting infos (handler, resolve ...)
+  // match the location.pathname to one of the routes and extract the related mounting infos (handler, resolve ...)
   return routes
     .reduce((result, route) => {
       const params = route.matcher(pathname);// a matcher returns false if no match or an object with potentials params matched for the route
