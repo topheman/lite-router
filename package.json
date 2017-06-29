@@ -1,0 +1,15 @@
+{
+  "name": "lite-router",
+  "version": "0.0.1",
+  "description": "A very light router based on history package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "router",
+    "history"
+  ],
+  "author": "Christophe Rosset <tophe@topheman.com> (http://labs.topheman.com/)",
+  "license": "MIT"
+}
