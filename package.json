@@ -2,8 +2,18 @@
   "name": "lite-router",
   "version": "0.0.1",
   "description": "A very light router based on history package",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src"
+  ],
   "scripts": {
+    "build": "npm run build:commonjs",
+    "build:watch": "npm run build:commonjs:watch",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --source-maps",
+    "build:commonjs:watch": "npm run build:commonjs -- --watch",
     "jest": "./node_modules/.bin/jest",
     "jest:watch": "npm run jest -- --watch",
     "lint": "./node_modules/.bin/eslint src",
@@ -20,9 +30,12 @@
   "author": "Christophe Rosset <tophe@topheman.com> (http://labs.topheman.com/)",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-preset-env": "^1.5.2",
+    "cross-env": "^5.0.1",
     "eslint": "^4.1.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.6.1",
