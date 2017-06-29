@@ -7,61 +7,61 @@ describe('micro-router', () => {
     describe('Match all pattern: *', () => {
       const matcher = compilePattern('*');
       it('should match /toto', () => {
-        expect(matcher('/toto')).to.eql({});
+        expect(matcher('/toto')).toEqual({});
       });
       it('should match anything', () => {
-        expect(matcher('anything')).to.eql({});
+        expect(matcher('anything')).toEqual({});
       });
     });
     describe('RegExp pattern: /^\\/posts\\/(\\w+)\\/(\\w+)\\/edit$/', () => {
       const matcher = compilePattern(/^\/posts\/(\w+)\/(\w+)\/edit$/);
       it('should match /posts/foo/bar/edit', () => {
-        expect(matcher('/posts/foo/bar/edit')).to.eql({});
+        expect(matcher('/posts/foo/bar/edit')).toEqual({});
       });
       it('should NOT match /posts/foo/bar/editNO', () => {
-        expect(matcher('/posts/foo/bar/editNO')).to.be.false;
+        expect(matcher('/posts/foo/bar/editNO')).toBe(false);
       });
       it('should NOT match /posts/foo/bar/edit/NO', () => {
-        expect(matcher('/posts/foo/bar/editNO')).to.be.false;
+        expect(matcher('/posts/foo/bar/editNO')).toBe(false);
       });
       it('should NOT match /posts/foo/bar', () => {
-        expect(matcher('/posts/foo/bar')).to.be.false;
+        expect(matcher('/posts/foo/bar')).toBe(false);
       });
     });
     describe('Params pattern: /repos/:owner/:name/edit', () => {
       const matcher = compilePattern('/repos/:owner/:name/edit');
       it('should match /repos/topheman/rsjs-experiments/edit', () => {
-        expect(matcher('/repos/topheman/rsjs-experiments/edit')).to.be.ok;
+        expect(matcher('/repos/topheman/rsjs-experiments/edit')).toBeTruthy();
       });
       it('should match the params from /repos/topheman/rsjs-experiments/edit', () => {
-        expect(matcher('/repos/topheman/rxjs-experiments/edit')).to.deep.equal({
+        expect(matcher('/repos/topheman/rxjs-experiments/edit')).toEqual({
           owner: 'topheman',
           name: 'rxjs-experiments'
         });
       });
       it('should NOT match /repo/reactjs/redux', () => {
-        expect(matcher('/repo/reactjs/redux')).to.be.false;
+        expect(matcher('/repo/reactjs/redux')).toBe(false);
       });
       it('should NOT match /repo/reactjs/redux/display', () => {
-        expect(matcher('/repo/reactjs/redux/display')).to.be.false;
+        expect(matcher('/repo/reactjs/redux/display')).toBe(false);
       });
       it('should NOT match /repo/reactjs', () => {
-        expect(matcher('/repo/reactjs')).to.be.false;
+        expect(matcher('/repo/reactjs')).toBe(false);
       });
       it('should NOT match /repo', () => {
-        expect(matcher('/repo/reactjs')).to.be.false;
+        expect(matcher('/repo/reactjs')).toBe(false);
       });
     });
     describe('Plain string patter: /hello/world', () => {
       const matcher = compilePattern('/hello/world');
       it('should match /hello/world', () => {
-        expect(matcher('/hello/world')).to.eql({});
+        expect(matcher('/hello/world')).toEqual({});
       });
       it('should NOT match /hello/world/NOT', () => {
-        expect(matcher('/hello/world/NOT')).to.be.false;
+        expect(matcher('/hello/world/NOT')).toBe(false);
       });
       it('should NOT match /hello', () => {
-        expect(matcher('/hello')).to.be.false;
+        expect(matcher('/hello')).toBe(false);
       });
     });
   });
@@ -70,27 +70,27 @@ describe('micro-router', () => {
       it('should NOT throw when pattern and handler attribute are present', () => {
         expect(() => normalizeRoutes([
           { pattern: 'foo', handler: () => ({}) }
-        ])).to.not.throw();
+        ])).not.toThrowError();
       });
       it('should throw when handler attribute is missing', () => {
         expect(() => normalizeRoutes([
           { pattern: 'foo' }
-        ])).to.throw();
+        ])).toThrowError();
       });
       it('should throw when pattern attribute is missing', () => {
         expect(() => normalizeRoutes([
           { handler: () => ({}) }
-        ])).to.throw();
+        ])).toThrowError();
       });
       it('should throw if resolve attribute is not a promise', () => {
         expect(() => normalizeRoutes([
           { pattern: 'foo', handler: () => ({}), resolve: {} }
-        ])).to.throw();
+        ])).toThrowError();
       });
       it('should NOT throw if resolve attribute is a promise', () => {
         expect(() => normalizeRoutes([
           { pattern: 'foo', handler: () => ({}), resolve: { then: () => ({}) } }
-        ])).to.not.throw();
+        ])).not.toThrowError();
       });
     });
     describe('mapping - normalizeRoutes(routes)', () => {
@@ -101,14 +101,14 @@ describe('micro-router', () => {
         { pattern: '*', handler: () => ({}) }
       ];
       it('should return a array', () => {
-        expect(normalizeRoutes(routes)).to.have.lengthOf(4);
+        expect(normalizeRoutes(routes)).toHaveLength(4);
       });
       it('should return a populated array', () => {
         const normalizedRoutes = normalizeRoutes(routes);
-        expect(normalizedRoutes[0]).to.contain.all.keys(['matcher', 'handler', 'resolve']);
-        expect(normalizedRoutes[1]).to.contain.all.keys(['matcher', 'handler', 'resolve']);
-        expect(normalizedRoutes[2]).to.contain.all.keys(['matcher', 'handler', 'resolve']);
-        expect(normalizedRoutes[3]).to.contain.all.keys(['matcher', 'handler', 'resolve']);
+        expect(normalizedRoutes[0]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
+        expect(normalizedRoutes[1]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
+        expect(normalizedRoutes[2]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
+        expect(normalizedRoutes[3]).toEqual(expect.arrayContaining(['matcher', 'handler', 'resolve']));
       });
     });
   });
@@ -121,20 +121,20 @@ describe('micro-router', () => {
     ];
     const matchMount = compileMatchMount(normalizeRoutes(routes));
     it('should match /hello/world', () => {
-      expect(matchMount('/hello/world')).to.contain.all.keys(['params', 'handler', 'resolve']);
-      expect(matchMount('/hello/world').params).to.eql({});
+      expect(matchMount('/hello/world')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hello/world').params).toEqual({});
     });
     it('should match /hie/universe', () => {
-      expect(matchMount('/hie/universe')).to.contain.all.keys(['params', 'handler', 'resolve']);
-      expect(matchMount('/hie/universe').params).to.eql({});
+      expect(matchMount('/hie/universe')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hie/universe').params).toEqual({});
     });
     it('should match /hello/topheman', () => {
-      expect(matchMount('/hello/topheman')).to.contain.all.keys(['params', 'handler', 'resolve']);
-      expect(matchMount('/hello/topheman').params).to.eql({ name: 'topheman' });
+      expect(matchMount('/hello/topheman')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/hello/topheman').params).toEqual({ name: 'topheman' });
     });
     it('should match /whatever', () => {
-      expect(matchMount('/whatever')).to.contain.all.keys(['params', 'handler', 'resolve']);
-      expect(matchMount('/whatever').params).to.eql({});
+      expect(matchMount('/whatever')).toEqual(expect.arrayContaining(['params', 'handler', 'resolve']));
+      expect(matchMount('/whatever').params).toEqual({});
     });
   });
 });
