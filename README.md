@@ -9,7 +9,14 @@ lite-router
 I needed some simple routing solution for my [rxjs-experiments](https://topheman.github.io/rxjs-experiments/#/router) project (not based on any framework or libraries that provides routers out of the box).
 So, I made a micro router, based on [history@2.x.x](https://github.com/ReactTraining/history/tree/v2).
 
-The next step was to publish it as an npm package (my main interest being the build workflow to setup on an es6+ code base specific to npm packages with multiples files).
+The next step was to publish it as an npm package (my main interest being the [build workflow](#contributers) to setup on an es6+ code base specific to npm packages with multiples files).
+
+#### Features
+
+* history support (back button)
+* mutiple routes / customizable routes
+* deferred mounting (only mount a route when a promise is resolved)
+* params support (optional)
 
 ## Install
 
@@ -64,6 +71,7 @@ const routes = [
   { pattern: '*' handler: mountHome }
 ];
 
+// init router and return the unlisten function to use eventually when you'll be done
 const unlisten = router(routes);
 ```
 
