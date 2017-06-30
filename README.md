@@ -2,6 +2,7 @@ lite-router
 ===========
 
 [![npm version](https://badge.fury.io/js/lite-router.svg)](https://www.npmjs.com/package/lite-router)
+[![Build Status](https://travis-ci.org/topheman/lite-router.svg?branch=master)](https://travis-ci.org/topheman/lite-router)
 
 ## Introduction
 
