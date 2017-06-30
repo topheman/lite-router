@@ -10,17 +10,20 @@
  * Example:
  *
  * ```js
- * import { router, hashHistory } from './scripts/libs/micro-router';
- * router(hashHistory, [
+ * import router from 'lite-router';
+ * const unlisten = router([
  *   { pattern: '/', handler: ({location, params, history}) => { console.log('mounting'); return ({loc, par, his}) => console.log('unmounting'); } }
  * ]);
+ *
+ * // when you're finished, stop the listener
+ * unlisten();
  * ```
  */
 
 import invariant from 'invariant';
-import { normalizeRoutes, compileMatchMount } from './utils';
+import { createHashHistory } from 'history';
 
-export { createHashHistory as hashHistory } from 'history';
+import { normalizeRoutes, compileMatchMount } from './utils';
 
 /*
  * @param {Function} createHistory
@@ -29,8 +32,8 @@ export { createHashHistory as hashHistory } from 'history';
  *    handler: {Function} Called when the pathname is match, must return a function that will be called when leaving the route. Ex:
  *      ({location, params, history}) => { console.log('mounting'); return ({loc, par, his}) => console.log('unmounting'); }
  */
-export const router = (createHistory, options) => {
-  const history = createHistory();
+const router = (options) => {
+  const history = createHashHistory();
   const routes = normalizeRoutes(options);
   const matchMount = compileMatchMount(routes);
   let currentLocationPathname = null;
@@ -59,3 +62,5 @@ export const router = (createHistory, options) => {
   });
   return unlisten;
 };
+
+export default router;

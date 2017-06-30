@@ -29,6 +29,14 @@
   ],
   "author": "Christophe Rosset <tophe@topheman.com> (http://labs.topheman.com/)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/topheman/lite-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/topheman/lite-router/issues"
+  },
+  "homepage": "https://topheman.github.io/rxjs-experiments/#/router",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -46,7 +54,7 @@
     "testRegex": "(/tests/.*\\.spec.js)$"
   },
   "dependencies": {
-    "history": "*",
-    "invariant": "^2.2.2"
+    "invariant": "^2.2.2",
+    "history": "^2.0.1"
   }
 }
