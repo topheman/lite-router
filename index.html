@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - lite-router</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body>
+  <span id="forkongithub"><a href="https://github.com/topheman/lite-router" title="lite-router on github">Fork me on GitHub</a></span>
+  <h1>lite-router</h1>
+  <i>
+    This example uses the umd build and is coded in plain, untranspiled ES6.
+    You can find more example <a href="https://github.com/topheman/lite-router#use" tile="More examples">here</a>.</i>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#/about">About</a></li>
+    <li><code>/router/posts/:category/:title/edit</code>
+      <ul>
+        <li><a href="#/router/posts/frameworks/emberjs/edit">/router/posts/frameworks/emberjs/edit</a></li>
+        <li><a href="#/router/posts/frameworks/angularjs/edit">/router/posts/frameworks/angularjs/edit</a></li>
+        <li><a href="#/router/posts/libraries/redux/edit">/router/posts/libraries/redux/edit</a></li>
+        <li><a href="#/router/posts/libraries/reactjs/edit">/router/posts/libraries/reactjs/edit</a></li>
+      </ul>
+    </li>
+    <li><code>/^\/router\/user\/([^\/?#]+)\/([^\/?#]+)$/i</code></li>
+    <ul>
+      <li><a href="#/router/user/topheman/lite-router">/router/user/topheman/lite-router</a></li>
+      <li><a href="#/router/user/topheman/rxjs-experiments">/router/user/topheman/rxjs-experiments</a></li>
+      <li><a href="#/router/user/mjackson/history">/router/user/mjackson/history</a></li>
+    </ul>
+    <li><a href="#/try-anithing">404</a> (capture all)</li>
+  </ul>
+  <div>
+    <p><label>Matched route:</label> <strong id="matched-route"></strong></p>
+  </div>
+  <div class="container">
+    <h2></h2>
+    <div class="content"></div>
+  </div>
+<!-- Using the umd build, if you have npm/webpack ... you can install the package and import it from 'lite-router' -->
+<script src="./lite-router.js"></script>
+<script src="./bootstrap.js"></script>
+</body>
+</html>
