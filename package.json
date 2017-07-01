@@ -44,7 +44,7 @@
   "bugs": {
     "url": "https://github.com/topheman/lite-router/issues"
   },
-  "homepage": "https://topheman.github.io/rxjs-experiments/#/router",
+  "homepage": "https://topheman.github.io/lite-router",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
