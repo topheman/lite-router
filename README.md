@@ -26,10 +26,7 @@ npm install lite-router
 
 ## Use
 
-More advanced example on [rxjs-experiments](https://topheman.github.io/rxjs-experiments/#/router):
-
-* [routes](https://github.com/topheman/rxjs-experiments/blob/master/src/routes.js)
-* [router init](https://github.com/topheman/rxjs-experiments/blob/master/src/bootstrap.js)
+### Code example
 
 ```js
 import router from 'lite-router';
@@ -74,6 +71,16 @@ const routes = [
 // init router and return the unlisten function to use eventually when you'll be done
 const unlisten = router(routes);
 ```
+
+### More examples
+
+You'll find the [example](https://github.com/topheman/lite-router/tree/master/example) folder which contains basic examples.
+A [DEMO is available here](https://topheman.github.io/lite-router).
+
+More advanced examples can be found on [rxjs-experiments](https://topheman.github.io/rxjs-experiments/#/router):
+
+* [routes](https://github.com/topheman/rxjs-experiments/blob/master/src/routes.js)
+* [router init](https://github.com/topheman/rxjs-experiments/blob/master/src/bootstrap.js)
 
 ## Api
 
