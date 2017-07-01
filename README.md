@@ -18,6 +18,8 @@ The next step was to publish it as an npm package (my main interest being the [b
 * deferred mounting (only mount a route when a promise is resolved)
 * params support (optional)
 
+*This package is available as multiple formats: `commonjs`, `umd` and `ecmascript modules`.*
+
 ## Install
 
 ```shell
