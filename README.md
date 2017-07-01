@@ -104,23 +104,25 @@ The `routes` array contains objects with the following properties:
 
 #### Install
 
-Install, then eventually, `npm link` the library to use it in local.
-
 ```shell
 git clone https://github.com/topheman/lite-router.git
 cd lite-router
 yarn
-npm link
-npm test
-npm run build
 ```
 
-In your project, just run `npm link lite-router`.
+Install, then eventually, `npm link` the library to use it in local.
+
+In your own project where you want to locally test `lite-router`, just run `npm link lite-router`.
 
 #### Build
 
-* One shot: `npm run build`
-* Watch mode: `npm run build:watch`
+* One shot
+    * all formats: `npm run build`
+    * commonjs (output in `lib` dir): `npm run build:commonjs`
+    * ecmascript module (ouput in `es` dir): `npm run build:es`
+    * umd (output as `dist/lite-router.js`) : `npm run build:umd`
+    * umd - minified (output as `dist/lite-router.min.js`) : `npm run build:umd:min`
+* Watch mode (only commonjs format): `npm run build:watch`
 
 #### Test
 
