@@ -139,6 +139,39 @@ In your own project where you want to locally test `lite-router`, just run `npm 
 
 The tests are in the `tests` folder, it is ran via [jest](https://facebook.github.io/jest/).
 
+#### Publish
+
+##### Publish npm package
+
+```shell
+npm publish
+```
+
+##### Publish gh-pages
+
+The gh-pages tracking branch is binded in `build/dist` folder. If you haven't it yet:
+
+```shell
+mkdir build
+cd build
+mkdir dist
+cd dist
+git init
+git remote add origin https://github.com/topheman/lite-router.git
+git fetch origin gh-pages
+git checkout gh-pages
+```
+
+If you already have a `build/dist` folder, to update the github pages:
+
+```shell
+npm run build:gh-pages
+cd build/dist
+git add .
+git commit -m "Update gh-pages"
+git push origin gh-pages
+```
+
 Copyright 2017 © Christophe Rosset
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software
