@@ -131,7 +131,10 @@ In your own project where you want to locally test `lite-router`, just run `npm 
     * ecmascript module (ouput in `es` dir): `npm run build:es`
     * umd (output as `dist/lite-router.js`) : `npm run build:umd`
     * umd - minified (output as `dist/lite-router.min.js`) : `npm run build:umd:min`
-* Watch mode (only commonjs format): `npm run build:watch`
+* Watch mode:
+    * commonjs: `npm run build:watch` or `npm run build:commonjs:watch`
+    * umd: `npm run build:umd:watch`
+    * es: `npm run build:es:watch`
 
 #### Test
 
@@ -146,6 +149,7 @@ The tests are in the `tests` folder, it is ran via [jest](https://facebook.githu
 ##### Publish npm package
 
 ```shell
+npm run build
 npm publish
 ```
 

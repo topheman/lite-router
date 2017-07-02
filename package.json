@@ -17,7 +17,9 @@
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:commonjs:watch": "npm run build:commonjs -- --watch",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:es:watch": "npm run build:es -- --watch",
     "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development node_modules/.bin/rollup src/index.js --config --sourcemap --output dist/lite-router.js",
+    "build:umd:watch": "npm run build:umd -- --watch",
     "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup src/index.js --config --output dist/lite-router.min.js",
     "build:gh-pages": "./node_modules/.bin/gulp build:gh-pages",
     "clean": "rimraf lib dist es",
@@ -69,7 +71,8 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
-    "rollup-plugin-uglify": "^2.0.1"
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.0.0"
   },
   "jest": {
     "testRegex": "(/tests/.*\\.spec.js)$"
