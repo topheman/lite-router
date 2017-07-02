@@ -45,6 +45,19 @@ const routes = [
       ` });
       return compileUnMountMethod(location);
     }
+  },{
+    pattern: '/deferred',
+    handler: ({ location }) => {
+      initView({ location, title: 'Deferred mounting', content: `
+        <p>Only mounts when the <code>resolve</code> attribute (a promise) is resolved.</p>
+        <p>Can be useful when you have to make sure to something will be available (like a user logged, some API initialized ...)</p>
+        <p>This one resolves after <strong>4 seconds</strong>. Once it's resolved, it will mount immediately.</p>
+      ` });
+      return compileUnMountMethod(location);
+    },
+    resolve: new Promise(res => {
+      return setTimeout(res, 4000);
+    })
   }, {
     pattern: '*',
     handler: ({ location }) => {
