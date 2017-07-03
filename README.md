@@ -171,7 +171,7 @@ git checkout gh-pages
 If you already have a `build/dist` folder, to update the github pages:
 
 ```shell
-npm run build:gh-pages
+npm run example:build
 cd build/dist
 git add .
 git commit -m "Update gh-pages"
