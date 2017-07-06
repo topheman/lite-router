@@ -11,6 +11,8 @@ So, I made a micro router, based on [history@2.x.x](https://github.com/ReactTrai
 
 The next step was to publish it as an npm package (my main interest being the [build workflow](#contributers) to setup on an es6+ code base specific to npm packages with multiples files).
 
+**[Read the blog post about the packaging workflow to npm in multiple formats](http://dev.topheman.com/package-a-module-for-npm-in-commonjs-es2015-umd-with-babel-and-rollup)**
+
 #### Features
 
 * history support (back button)
